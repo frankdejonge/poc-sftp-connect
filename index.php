@@ -13,7 +13,7 @@ $filesystem = new Filesystem(new SftpAdapter(
     connectionProvider: new SftpConnectionProvider(
         host: getenv('SFTP_HOST'),
         username: getenv('SFTP_USER'),
-        privateKey: __DIR__ . '/private.key',
+        privateKey: file_get_contents(__DIR__ . '/private.key'),
         connectivityChecker: new SimpleConnectivityChecker(),
     ),
     root: '/'
